@@ -17,14 +17,6 @@ export class ProjetosServiceProvider {
     return this.projetos;
   }
 
-  touchProjeto(cod) {
-    
-  }
-
-  addProjeto() {
-
-  }
-
   // constructor(public http: Http) {
   //   console.log('Hello ProjetosServiceProvider Provider');
   // }
