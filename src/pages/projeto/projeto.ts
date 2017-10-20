@@ -10,17 +10,27 @@ import { ProjetosServiceProvider } from "../../providers/projetos-service/projet
 export class ProjetoPage {
 
   codProjeto: number;
-  nomeProjeto: string;
+  nomeProjeto: string = "";
+  novo: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public projetoService: ProjetosServiceProvider) {
     this.codProjeto = navParams.get('codigo');
+    this.novo = navParams.get('novo');
     let projetos = projetoService.getProjetos();
-    for (let i = 0; i < projetos.length; i++) {
-      if (projetos[i].codigo == this.codProjeto ) {
-        this.nomeProjeto = projetos[i].nome;
-        break;
+
+    if (!this.novo) {
+      for (let i = 0; i < projetos.length; i++) {
+        if (projetos[i].codigo == this.codProjeto ) {
+          this.nomeProjeto = projetos[i].nome;
+          break;
+        }
       }
     }
+  }
+
+  add() {
+    this.projetoService.addProjeto(this.nomeProjeto);
+    this.navCtrl.pop();
   }
 
   edit() {

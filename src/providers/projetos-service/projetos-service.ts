@@ -35,6 +35,14 @@ export class ProjetosServiceProvider {
     }
   }
 
+  addProjeto(n:string) {
+    this.ultimoCodigo++;
+    this.projetos.push({
+      codigo: this.ultimoCodigo,
+      nome: n
+    });
+  }
+
   // constructor(public http: Http) {
   //   console.log('Hello ProjetosServiceProvider Provider');
   // }

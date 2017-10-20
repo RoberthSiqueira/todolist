@@ -17,13 +17,11 @@ export class ProjetosPage {
 
   touchProjeto(codigo) {
     let cod = parseInt(codigo);
-    this.navCtrl.push(ProjetoPage, {
-      codigo: cod
-    });
+    this.navCtrl.push(ProjetoPage, {codigo: cod, novo: false});
   }
 
   addProjeto() {
-    
+    this.navCtrl.push(ProjetoPage, {codigo: 0, novo: true});
   }
 
   ionViewDidLoad() {
