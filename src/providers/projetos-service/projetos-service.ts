@@ -17,6 +17,24 @@ export class ProjetosServiceProvider {
     return this.projetos;
   }
 
+  editProjeto(cod: number, nome: string) {
+    for (let i=0; i < this.projetos.length; i++) {
+      if (this.projetos[i].codigo == cod) {
+        this.projetos[i].nome = nome;
+        break;
+      }
+    }
+  }
+
+  deleteProjeto(cod: number) {
+    for (let i=0; i < this.projetos.length; i++) {
+      if (this.projetos[i].codigo == cod) {
+        this.projetos.splice(i,1);
+        break;
+      }
+    }
+  }
+
   // constructor(public http: Http) {
   //   console.log('Hello ProjetosServiceProvider Provider');
   // }

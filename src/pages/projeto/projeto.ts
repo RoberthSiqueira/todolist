@@ -24,11 +24,13 @@ export class ProjetoPage {
   }
 
   edit() {
-
+    this.projetoService.editProjeto(this.codProjeto, this.nomeProjeto);
+    this.navCtrl.pop();
   }
 
   delete() {
-    
+    this.projetoService.deleteProjeto(this.codProjeto);
+    this.navCtrl.pop();
   }
 
   ionViewDidLoad() {

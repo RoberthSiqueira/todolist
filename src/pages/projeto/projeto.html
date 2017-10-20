@@ -11,11 +11,16 @@
   <ion-list>
       <ion-item>
           <ion-label>Nome:</ion-label>
-          <ion-input type="text" placeholder="Nome do projeto" value="{{nomeProjeto}}"></ion-input>
+          <ion-input type="text" placeholder="Nome do projeto" [(ngModel)]="nomeProjeto" name="nomeProjeto" required #nome="ngModel"></ion-input>
       </ion-item>
   </ion-list>
+  <ion-card class="alerta" *ngIf="!nome.valid">
+    <ion-card-content>
+      O nome do projeto é obrigatório.
+    </ion-card-content>
+  </ion-card>
   <div id="mais">
-    <button ion-button round (click)="edit()">
+    <button ion-button round (click)="edit()" [disabled]="!nome.valid">
       <ion-icon name="checkmark"></ion-icon>
     </button>
     <button ion-button round color="danger" (click)="delete()">
