@@ -1,0 +1,30 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tarefa</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Descrição</ion-label>
+      <ion-input required placeholder="Descrição da tarefa" [(ngModel)]="descricao" name="descricao" #cd="ngModel">Descrição</ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Projeto</ion-label>
+        <ion-input [(ngModel)]="codigoProjeto"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Data</ion-label>
+        <ion-input [(ngModel)]="data"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Prioridade</ion-label>
+        <ion-input [(ngModel)]="prioridade"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>

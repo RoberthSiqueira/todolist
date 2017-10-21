@@ -13,11 +13,13 @@
       <h2>{{t.descricao | uppercase}}</h2>
       <h3>Projeto: {{nomeProjeto(t.projeto)}}</h3>
       <p>{{t.data | date:'dd/MM/yyyy'}}</p>
-      <ion-badge item-right [class.alta]="t.prioridade==1" [class.media]="t.prioridade==2" [class.baixa]="t.prioridade==3">{{t.prioridade}}</ion-badge>
+      <ion-badge item-right [class.alta]="t.prioridade==1" [class.media]="t.prioridade==2" [class.baixa]="t.prioridade==3">
+        {{t.prioridade}}
+      </ion-badge>
     </button>
   </ion-list>
   <div class="mais">
-    <button ion-button round (click)="novaTarefa()">
+    <button ion-button round (click)="addTarefa()">
       <ion-icon name="add"></ion-icon>
     </button>
   </div>

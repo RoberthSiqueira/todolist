@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { ProjetosPage } from '../pages/projetos/projetos';
 import { ProjetoPage } from '../pages/projeto/projeto';
 import { TarefasPage } from '../pages/tarefas/tarefas';
+import { TarefaPage } from '../pages/tarefa/tarefa';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -19,6 +20,7 @@ import { TarefasServiceProvider } from '../providers/tarefas-service/tarefas-ser
     ProjetosPage,
     ProjetoPage,
     TarefasPage,
+    TarefaPage,
     TabsPage
   ],
   imports: [
@@ -31,6 +33,7 @@ import { TarefasServiceProvider } from '../providers/tarefas-service/tarefas-ser
     ProjetosPage,
     ProjetoPage,
     TarefasPage,
+    TarefaPage,
     TabsPage
   ],
   providers: [

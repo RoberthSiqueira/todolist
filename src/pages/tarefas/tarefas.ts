@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TarefaPage } from '../tarefa/tarefa'
 import { TarefasServiceProvider } from '../../providers/tarefas-service/tarefas-service';
 import { ProjetosServiceProvider } from '../../providers/projetos-service/projetos-service';
 
@@ -25,12 +26,13 @@ export class TarefasPage {
     return "Projeto não encontrado";
   }
 
-  touchTarefa(cod) {
-
+  touchTarefa(codigo) {
+    let cod = parseInt(codigo);
+    this.navCtrl.push(TarefaPage, {codigo: cod, novo: false});
   }
 
   addTarefa() {
-    
+    this.navCtrl.push(TarefaPage, {codigo: 0, novo: true});
   }
 
   ionViewDidLoad() {
