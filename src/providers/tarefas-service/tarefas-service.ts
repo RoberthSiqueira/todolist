@@ -17,6 +17,38 @@ export class TarefasServiceProvider {
     return this.tarefas;
   }
 
+  editTarefa(cod, codProjeto, desc, data, prioridade) {
+    for(let i=0; i<this.tarefas.length; i++) {
+      if (this.tarefas[i].codigo == cod) {
+        this.tarefas[i].projeto = codProjeto;
+        this.tarefas[i].descricao = desc;
+        this.tarefas[i].data = data;
+        this.tarefas[i].prioridade = prioridade;
+        break;
+      }
+    }
+  }
+
+  addTarefa(codProjeto, desc, data, prioridade) {
+    this.ultimoCodigo++;
+    this.tarefas.push({
+      codigo: this.ultimoCodigo,
+      projeto: codProjeto,
+      descricao: desc,
+      data: data,
+      prioridade: prioridade
+    });
+  }
+
+  deleteTarefa(cod) {
+    for(let i=0; i<this.tarefas.length; i++) {
+      if (this.tarefas[i].codigo == cod) {
+        this.tarefas.splice(i,1);
+        break;
+      }
+    }
+  }
+
   // constructor(public http: Http) {
   //   console.log('Hello TarefasServiceProvider Provider');
   // }

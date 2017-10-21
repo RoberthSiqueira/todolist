@@ -17,7 +17,7 @@ export class TarefaPage {
   codigoProjeto: number;
   descricao: string;
   prioridade: number;
-  data: Date;
+  data: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public tarefasService: TarefasServiceProvider, public projetosService: ProjetosServiceProvider) {
     this.projetos = projetosService.getProjetos();
@@ -30,15 +30,51 @@ export class TarefaPage {
           this.codigoProjeto = tarefas[i].projeto;
           this.descricao = tarefas[i].descricao;
           this.prioridade = tarefas[i].prioridade;
-          this.data = tarefas[i].data;
+          let d = tarefas[i].data;
+          this.data = d.getFullYear()+"-"+
+                      ("0"+(d.getMonth()+1)).substr(-2,2)+"-"+
+                      ("0"+d.getDate()).substr(-2,2);
         }
       }
     } else {
       this.codigoProjeto = this.projetos[0].codigoProjeto;
       this.descricao = '';
       this.prioridade = 3;
-      this.data = new Date();
+      let d = new Date();
+      this.data = d.getFullYear()+"-"+
+                  ("0"+(d.getMonth()+1)).substr(-2,2)+"-"+
+                  ("0"+d.getDate()).substr(-2,2);
     }
+  }
+
+  delete() {
+    this.tarefasService.deleteTarefa(this.codigoTarefa);
+    this.navCtrl.pop();
+  }
+
+  edit() {
+    let d = new Date(parseInt(this.data.substr(0,4)),
+                    parseInt(this.data.substr(5,2))-1,
+                    parseInt(this.data.substr(8,2)));
+    this.tarefasService.editTarefa(
+      this.codigoTarefa, 
+      this.codigoProjeto,
+      this.descricao,
+      d,
+      this.prioridade);
+    this.navCtrl.pop();
+  }
+
+  include() {
+    let d = new Date(parseInt(this.data.substr(0,4)),
+                    parseInt(this.data.substr(5,2))-1,
+                    parseInt(this.data.substr(8,2)));
+    this.tarefasService.addTarefa(
+      this.codigoProjeto,
+      this.descricao,
+      d,
+      this.prioridade);
+    this.navCtrl.pop();
   }
 
   ionViewDidLoad() {
