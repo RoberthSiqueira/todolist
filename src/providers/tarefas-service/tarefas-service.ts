@@ -6,12 +6,13 @@ import 'rxjs/add/operator/map';
 export class TarefasServiceProvider {
 
   tarefas = [
-    {codigo: 1, projeto: 1, descricao: 'Tarefa 1', data: new Date(2017, 2, 27), prioridade: 1},
-    {codigo: 2, projeto: 1, descricao: 'Tarefa 2', data: new Date(2017, 5, 17), prioridade: 2},
-    {codigo: 3, projeto: 2, descricao: 'Tarefa 3', data: new Date(2017, 2, 10), prioridade: 1},
-    {codigo: 4, projeto: 3, descricao: 'Tarefa 4', data: new Date(2017, 3, 27), prioridade: 3}
+    {codigo: 1, projeto: 1, descricao: 'Tarefa 1', data: new Date(2017, 10, 22), prioridade: 1},
+    {codigo: 2, projeto: 1, descricao: 'Tarefa 2', data: new Date(2018, 2, 14), prioridade: 2},
+    {codigo: 3, projeto: 2, descricao: 'Tarefa 3', data: new Date(2017, 10, 1), prioridade: 1},
+    {codigo: 4, projeto: 3, descricao: 'Tarefa 4', data: new Date(2017, 10, 27), prioridade: 3},
+    {codigo: 5, projeto: 4, descricao: 'Tarefa 5', data: new Date(2017, 10, 21), prioridade: 1}
   ];
-  ultimoCodigo = 4;    
+  ultimoCodigo = 5;    
 
   getTarefas(): any[] {
     return this.tarefas;
