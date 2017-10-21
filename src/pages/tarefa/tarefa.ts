@@ -10,6 +10,8 @@ import { ProjetosServiceProvider } from '../../providers/projetos-service/projet
 })
 export class TarefaPage {
 
+  rootPage = null;
+
   projetos: any[];
   novo: boolean;
 
