@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ProjetosServiceProvider } from "../../providers/projetos-service/projetos-service"
+import { ProjetosServiceProvider } from '../../providers/projetos-service/projetos-service';
 
 @IonicPage()
 @Component({
