@@ -5,7 +5,7 @@ import { MyApp } from './app.component';
 
 import { ProjetosPage } from '../pages/projetos/projetos';
 import { ProjetoPage } from '../pages/projeto/projeto';
-import { TarefasPage } from '../pages/tarefas/tarefas';
+import { TarefasPage, Filtro } from '../pages/tarefas/tarefas';
 import { TarefaPage } from '../pages/tarefa/tarefa';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -21,6 +21,7 @@ import { TarefasServiceProvider } from '../providers/tarefas-service/tarefas-ser
     ProjetoPage,
     TarefasPage,
     TarefaPage,
+    Filtro,
     TabsPage
   ],
   imports: [

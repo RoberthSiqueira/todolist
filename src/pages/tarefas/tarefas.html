@@ -18,14 +18,14 @@
     <ion-content>
       <ion-list>
         <ion-item-group>
-            <button ion-item (click)="limpaFiltros()">Todas</button>
-            <button ion-item (click)="filtroDias(0)">Até hoje</button>
-            <button ion-item (click)="filtroDias(1)">Até amanhã</button>
-            <button ion-item (click)="filtroDias(7)">Até a próxima semana</button>
+            <button ion-item (click)="clearFiltros()">Todas</button>
+            <button ion-item (click)="filterDias(0)">Até hoje</button>
+            <button ion-item (click)="filterDias(1)">Até amanhã</button>
+            <button ion-item (click)="filterDias(7)">Até a próxima semana</button>
         </ion-item-group>
         <ion-item-group>
             <ion-item-divider class="light">POR PROJETOS</ion-item-divider>
-            <button ion-item *ngFor="let p of projetos" (click)="filtroProjeto(p.codigo)">{{ p.nome }}</button>
+            <button ion-item *ngFor="let p of projetos" (click)="filterProjeto(p.codigo)">{{ p.nome }}</button>
         </ion-item-group>
       </ion-list>
     </ion-content>
@@ -36,7 +36,7 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let t of tarefas" (click)="touchTarefa(t.codigo)">
+    <button ion-item *ngFor="let t of tarefas | filtro: filtroTarefas" (click)="touchTarefa(t.codigo)">
       <h2>{{t.descricao | uppercase}}</h2>
       <h3>Projeto: {{nomeProjeto(t.projeto)}}</h3>
       <p>{{t.data | date:'dd/MM/yyyy'}}</p>

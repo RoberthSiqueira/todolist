@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, Pipe, PipeTransform } from '@angular/core';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { TarefaPage } from '../tarefa/tarefa'
 import { TarefasServiceProvider } from '../../providers/tarefas-service/tarefas-service';
 import { ProjetosServiceProvider } from '../../providers/projetos-service/projetos-service';
@@ -13,8 +13,9 @@ export class TarefasPage {
 
   tarefas: any[];
   projetos: any[];
+  filtroTarefas = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public tarefasService: TarefasServiceProvider, public projetosService: ProjetosServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController,  public tarefasService: TarefasServiceProvider, public projetosService: ProjetosServiceProvider) {
     this.projetos = projetosService.getProjetos();
     this.tarefas = tarefasService.getTarefas();
   }
@@ -35,8 +36,32 @@ export class TarefasPage {
     this.navCtrl.push(TarefaPage, {codigo: 0, novo: true});
   }
 
+  clearFiltros() {
+    this.filtroTarefas = {};
+    this.menuCtrl.close();
+  }
+
+  filterProjeto(cod) {
+    this.filtroTarefas = { projeto: cod }
+    this.menuCtrl.close();
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad TarefasPage');
   }
 
 }
+
+@Pipe({
+  name: 'filtro'
+})
+ export class Filtro implements PipeTransform {
+  transform(itens:any[],filtro:any):any {
+    itens.sort((a,b) => a.data - b.data);
+    if(filtro.projeto>=0){
+      return itens.filter(item => item.projeto == filtro.projeto);
+    } else {
+      return itens;
+    }
+  }
+ }
