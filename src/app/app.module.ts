@@ -7,6 +7,7 @@ import { ProjetosPage } from '../pages/projetos/projetos';
 import { ProjetoPage } from '../pages/projeto/projeto';
 import { TarefasPage, Filtro } from '../pages/tarefas/tarefas';
 import { TarefaPage } from '../pages/tarefa/tarefa';
+import { InfoPage } from '../pages/info/info';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -22,6 +23,7 @@ import { TarefasServiceProvider } from '../providers/tarefas-service/tarefas-ser
     TarefasPage,
     TarefaPage,
     Filtro,
+    InfoPage,
     TabsPage
   ],
   imports: [
@@ -35,6 +37,7 @@ import { TarefasServiceProvider } from '../providers/tarefas-service/tarefas-ser
     ProjetoPage,
     TarefasPage,
     TarefaPage,
+    InfoPage,
     TabsPage
   ],
   providers: [
